@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:gravity="center"
+              style="@style/Fon"
+        >
+
+    <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@string/loginBtn"
+            android:id="@+id/loginBtn"
+            android:onClick="onLoginBtnClick"
+            style="@style/buttons"
+            android:layout_margin="5dp"/>
+    <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@string/returnToAccountBtn"
+            android:onClick="onReturnToAccountBtnClick"
+            android:id="@+id/returnToAccountBtn"
+            style="@style/buttons"
+            android:layout_margin="5dp"/>
+    <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@string/logoutBtn"
+            android:onClick="onLogoutBtnClick"
+            android:id="@+id/logoutBtn"
+            style="@style/buttons"
+            android:layout_margin="5dp"/>
+
+</LinearLayout>

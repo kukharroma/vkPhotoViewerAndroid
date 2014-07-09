@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Vk Photo Viewer</string>
+    <string name="item_exit">Вийти з аккаунта</string>
+    <string name="loginBtn">Увійти в аккаунт</string>
+    <string name="logoutBtn">Вийти з аккаунта</string>
+    <string name="returnToAccountBtn">Повернутись в аккаунт</string>
+    <string name="allAlbumsTxt">Усі фотоальбоми</string>
+    <string name="albumNameTxt">Альбом :</string>
+</resources>

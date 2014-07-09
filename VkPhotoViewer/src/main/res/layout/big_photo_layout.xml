@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/Fon"
+        >
+
+    <ImageView
+            android:id="@+id/bigImage"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/backfonstyle"
+            android:layout_centerHorizontal="true" android:layout_above="@+id/backBtnBigPhoto"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/backBtnBigPhoto"
+            android:background="@drawable/back"
+            android:onClick="onBackBtnBigPhotoClick"
+            android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"/>
+</RelativeLayout>

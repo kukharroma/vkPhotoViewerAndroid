@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="5dp"
+              style="@style/Fon"
+        >
+
+    <GridView
+            android:id="@+id/photosGridView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:numColumns="auto_fit"
+            android:columnWidth="100dp"
+            android:stretchMode="columnWidth"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/albumName" android:layout_above="@+id/backBtnPhoto"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/backBtnPhoto" android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/back"
+            android:onClick="onBackBtnPhotoClick"
+
+            />
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/forwardBtnPhoto" android:layout_below="@+id/photosGridView"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/forward"
+            android:onClick="onForwardBtnPhotoClick"
+
+            />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/albumNameTxt"
+            android:id="@+id/albumName" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+            style="@style/tittleStyle"
+            />
+</RelativeLayout>
