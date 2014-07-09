@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -27,6 +26,10 @@ public class AlbumAdapter extends BaseAdapter {
     public AlbumAdapter(Context context, VKList<VKApiPhotoAlbum> photoAlbumList) {
         this.photoAlbumList = photoAlbumList;
         this.context = context;
+        initImageLoader();
+    }
+
+    private void initImageLoader() {
         imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(context));
     }

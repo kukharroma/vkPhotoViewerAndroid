@@ -25,6 +25,10 @@ public class PhotoAdapter extends BaseAdapter {
     public PhotoAdapter(Context context, VKList<VKApiPhoto> photoList) {
         this.context = context;
         this.photoList = photoList;
+        initImageLoader();
+    }
+
+    private void initImageLoader(){
         imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(context));
     }
