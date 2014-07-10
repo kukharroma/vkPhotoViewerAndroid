@@ -65,6 +65,7 @@ public class AlbumAdapter extends BaseAdapter {
                     @Override
                     public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
                         albumImage.setImageBitmap(loadedImage);
+
                     }
 
                     @Override
