@@ -19,19 +19,21 @@
             android:horizontalSpacing="10dp"
             android:verticalSpacing="10dp"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/albumName" android:layout_above="@+id/backBtnPhoto"/>
+            android:layout_below="@+id/albumName"
+            android:layout_above="@+id/backBtnPhoto"/>
     <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/backBtnPhoto" android:layout_alignParentBottom="true"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:id="@+id/backBtnPhoto"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:background="@drawable/back"
             android:onClick="onBackBtnPhotoClick"
 
             />
     <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
             android:id="@+id/forwardBtnPhoto" android:layout_below="@+id/photosGridView"
             android:layout_alignParentRight="true"
             android:background="@drawable/forward"

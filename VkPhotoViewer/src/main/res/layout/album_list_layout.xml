@@ -22,19 +22,23 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/textView" android:layout_above="@+id/forwardBtnAlbum"/>
     <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
             android:id="@+id/backBtnAlbum"
             android:background="@drawable/back"
             android:onClick="onBackBtnClick"
-            android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"/>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/forwardBtnAlbum"
+            />
     <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
             android:id="@+id/forwardBtnAlbum"
             android:background="@drawable/forward"
             android:onClick="onForwardBtnClick"
-            android:layout_alignParentBottom="true" android:layout_alignParentRight="true"/>
+            android:layout_alignParentBottom="true" android:layout_alignParentRight="true"
+            />
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
