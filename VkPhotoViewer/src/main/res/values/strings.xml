@@ -4,6 +4,6 @@
     <string name="loginBtn">Увійти в аккаунт</string>
     <string name="logoutBtn">Вийти з аккаунта</string>
     <string name="returnToAccountBtn">Повернутись в аккаунт</string>
-    <string name="allAlbumsTxt">Усі фотоальбоми</string>
+    <string name="allAlbumsTxt">Усі альбоми</string>
     <string name="albumNameTxt">Альбом :</string>
 </resources>

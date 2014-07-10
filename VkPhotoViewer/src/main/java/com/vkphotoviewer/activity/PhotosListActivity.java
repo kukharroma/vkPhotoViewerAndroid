@@ -2,14 +2,14 @@ package com.vkphotoviewer.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.vk.sdk.api.*;
 import com.vk.sdk.api.model.VKApiPhoto;
 import com.vk.sdk.api.model.VKApiPhotoAlbum;
@@ -17,7 +17,7 @@ import com.vk.sdk.api.model.VKApiUserFull;
 import com.vk.sdk.api.model.VKList;
 import com.vkphotoviewer.R;
 import com.vkphotoviewer.adapters.PhotoAdapter;
-import com.vkphotoviewer.services.PhotoService;
+import com.vkphotoviewer.util.AlbumConst;
 
 
 public class PhotosListActivity extends Activity {
@@ -67,15 +67,33 @@ public class PhotosListActivity extends Activity {
     }
 
     private void getPhotos(VKApiUserFull user) {
-        VKRequest photoRequest = new VKRequest("photos.get", VKParameters.from(VKApiConst.OWNER_ID, user.getId(),
-                VKApiConst.ALBUM_ID, photoAlbum.getId()));
-        photoRequest.executeWithListener(new VKRequest.VKRequestListener() {
-            @Override
-            public void onComplete(VKResponse response) {
-                VKList<VKApiPhoto> photoList = new VKList<VKApiPhoto>(response.json, VKApiPhoto.class);
-                setPhotosGridView(photoList);
-            }
-        });
+        String albumID;
+        if (photoAlbum.getId() == 0) {
+            albumID = getIdByTitle(photoAlbum.title);
+        } else {
+            albumID = String.valueOf(photoAlbum.getId());
+        }
+
+        if (albumID.equals(AlbumConst.WITH_ME)) {
+            VKRequest requestPhotoWitMy = new VKRequest("photos.getUserPhotos", VKParameters.from(VKApiConst.OWNER_ID, user.getId()));
+            requestPhotoWitMy.executeWithListener(new VKRequest.VKRequestListener() {
+                @Override
+                public void onComplete(VKResponse response) {
+                    super.onComplete(response);
+                    VKList<VKApiPhoto> photoList = new VKList<VKApiPhoto>(response.json, VKApiPhoto.class);
+                    setPhotosGridView(photoList);
+                }
+            });
+        } else {
+            VKRequest photoRequest = new VKRequest("photos.get", VKParameters.from(VKApiConst.OWNER_ID, user.getId(), VKApiConst.ALBUM_ID, albumID));
+            photoRequest.executeWithListener(new VKRequest.VKRequestListener() {
+                @Override
+                public void onComplete(VKResponse response) {
+                    VKList<VKApiPhoto> photoList = new VKList<VKApiPhoto>(response.json, VKApiPhoto.class);
+                    setPhotosGridView(photoList);
+                }
+            });
+        }
     }
 
     private void setPhotosGridView(final VKList<VKApiPhoto> photoList) {
@@ -93,6 +111,13 @@ public class PhotosListActivity extends Activity {
     }
 
     public void onBackBtnPhotoClick(View view) {
+        imageLoader.stop();
+        super.onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+        imageLoader.stop();
         super.onBackPressed();
     }
 
@@ -104,6 +129,26 @@ public class PhotosListActivity extends Activity {
     protected void onRestart() {
         super.onRestart();
         forwardBtnPhoto.setVisibility(View.VISIBLE);
+    }
+
+    private String getIdByTitle(String tittle) {
+        String result = "";
+        if (tittle.equals(AlbumConst.WALL)) {
+            result = "wall";
+
+        } else if (tittle.equals(AlbumConst.PROFILE)) {
+            result = "profile";
+
+        } else if (tittle.equals(AlbumConst.SAVED)) {
+            result = "saved";
+
+        } else if (tittle.equals(AlbumConst.PREVIEW)) {
+            result = "preview";
+
+        } else if (tittle.equals(AlbumConst.WITH_ME)) {
+            result = AlbumConst.WITH_ME;
+        }
+        return result;
     }
 
 }

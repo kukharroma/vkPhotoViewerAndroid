@@ -62,13 +62,19 @@ public class ViewPhotoActivity extends Activity {
         });
     }
 
-
     private void initImageLoader() {
         imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(getApplicationContext()));
     }
 
     public void onBackBtnBigPhotoClick(View view) {
+        imageLoader.stop();
+        super.onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+        imageLoader.stop();
         super.onBackPressed();
     }
 }
